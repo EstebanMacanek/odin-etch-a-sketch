@@ -8,16 +8,27 @@ function makeGrid (numberOfLines) {
         for (u = 0; u < numberOfLines; u++) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
+            cell.dataset.count = 0;
             line.appendChild(cell);
         }
     }
+}
+
+function randomN (n) {
+    return Math.floor(Math.random() * (n + 1));
+}
+
+function randomRGB (black) {
+    return `rgb(${randomN(255) - black}, ${randomN(255) - black}, ${randomN(255) - black})`
 }
 
 function mouseover () {
     let cells = document.querySelectorAll('.cell');
     cells.forEach(cell => {
         cell.addEventListener('mouseover', () => {
-            cell.style.backgroundColor = 'black';
+            cell.style.backgroundColor = randomRGB(10*Number(cell.dataset.count));
+            cell.dataset.count = Number(cell.dataset.count) + 1;
+
         });
     });
 }
