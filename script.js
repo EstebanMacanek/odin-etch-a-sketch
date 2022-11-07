@@ -28,7 +28,6 @@ function mouseover () {
         cell.addEventListener('mouseover', () => {
             cell.style.backgroundColor = randomRGB(10*Number(cell.dataset.count));
             cell.dataset.count = Number(cell.dataset.count) + 1;
-
         });
     });
 }
