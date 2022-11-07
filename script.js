@@ -10,3 +10,10 @@ for (i = 0; i < 16; i++) {
         line.appendChild(cell);
     }
 }
+
+let cells = document.querySelectorAll('.cell');
+cells.forEach(cell => {
+    cell.addEventListener('mouseover', () => {
+        cell.style.backgroundColor = 'black';
+    });
+});
